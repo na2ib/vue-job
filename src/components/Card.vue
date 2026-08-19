@@ -4,13 +4,13 @@ import { defineProps } from 'vue';
 defineProps({
     bg: {
         type: String,
-        default: 'bg-gray-100'
+        default: 'bg-zinc-900'
     }
 });
 </script>
 
 <template>
-    <div :class="`${bg} p-6 rounded-lg shadow-md`">
+    <div :class="[bg, 'p-8 rounded-2xl shadow-lg border border-zinc-800/50 relative overflow-hidden group']">
         <slot></slot>
     </div>
 </template>

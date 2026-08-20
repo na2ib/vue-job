@@ -1,38 +1,86 @@
-# vue-project
+# Vue Jobs 🚀
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, premium job board application built with Vue 3, Vite, and Tailwind CSS. Featuring a sleek dark-mode aesthetic, smooth page transitions, and skeleton loading animations, this project demonstrates modern frontend architecture and UI/UX best practices.
 
-## Recommended IDE Setup
+![Vue 3](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## ✨ Features
 
-## Recommended Browser Setup
+- **Premium UI/UX:** Deep zinc/slate dark backgrounds with neon emerald accents, glassmorphism headers, and polished micro-interactions.
+- **Smooth Animations:** Vue `<Transition>` integration for seamless page crossfades and interactive hover states.
+- **Skeleton Loading:** Custom animated pulse placeholders provide immediate feedback while data is fetched.
+- **Static-Ready Architecture:** Data fetching is decoupled from a live backend. Job listings are served via a static `jobs.json` asset, making the application 100% compatible with free static hosts (Cloudflare Pages, Netlify, GitHub Pages).
+- **Form Handling:** Reactive forms for adding and editing jobs, featuring mock submission handling for static environments.
+- **Toast Notifications:** Elegant, non-intrusive alerts for user actions using `vue-toastification`.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## 🛠️ Tech Stack
 
-## Customize configuration
+- **Framework:** [Vue 3](https://vuejs.org/) (Composition API & `<script setup>`)
+- **Bundler:** [Vite](https://vitejs.dev/)
+- **Routing:** [Vue Router 4](https://router.vuejs.org/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **HTTP Client:** [Axios](https://axios-http.com/)
+- **Icons:** [PrimeIcons](https://primefaces.org/primeicons/)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 📂 Project Structure
 
-## Project Setup
-
-```sh
-npm install
+```text
+├── public/
+│   ├── favicon.ico
+│   └── jobs.json         # Static mock database for job listings
+├── src/
+│   ├── assets/           # Global styles and images (main.css, logo.png)
+│   ├── components/       # Reusable Vue components (Navbar, Hero, Cards, etc.)
+│   ├── views/            # Page-level components (Home, Jobs, Add/Edit Job)
+│   ├── router/           # Vue Router configuration
+│   ├── App.vue           # Root layout and transition wrapper
+│   └── main.js           # Vue application entry point
+├── index.html            # HTML template
+├── package.json          # Dependencies and scripts
+└── vite.config.js        # Vite bundler configuration
 ```
 
-### Compile and Hot-Reload for Development
+## 🚀 Getting Started
 
-```sh
-npm run dev
-```
+### Prerequisites
 
-### Compile and Minify for Production
+- [Node.js](https://nodejs.org/) (v18 or newer recommended)
+- npm or yarn
 
-```sh
-npm run build
-```
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd vue-jobs
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+   *The compiled static files will be placed in the `dist/` directory, ready for deployment.*
+
+## 🏗️ Architecture Note: Static Deployment
+
+This application is configured for **Static Hosting**. 
+- **Read Operations:** The app fetches job data directly from `public/jobs.json`.
+- **Write Operations:** Because static hosts (like Netlify or Cloudflare Pages) do not run an active backend server, actions like POST (Add Job), PUT (Edit Job), and DELETE (Delete Job) are **mocked**. They simulate network latency and return success notifications to demonstrate the UI flow without crashing or requiring a live database.
+
+To connect this to a real database, you would replace the mocked Axios calls in `AddJobView.vue`, `EditJobView.vue`, and `JobView.vue` with real API endpoints, and host a separate backend server or utilize Serverless Functions.
+
+## 📄 License
+
+This project is open-source and available under the MIT License.

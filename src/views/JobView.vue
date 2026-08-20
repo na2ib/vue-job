@@ -33,7 +33,7 @@ const deleteJob = async () => {
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/jobs.json');
+    const response = await axios.get(`${import.meta.env.BASE_URL}jobs.json`);
     state.job = response.data.jobs.find(job => job.id === jobId);
     if (!state.job) throw new Error("Job not found in static data");
   } catch (error) {
